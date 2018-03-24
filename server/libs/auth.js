@@ -108,6 +108,27 @@ module.exports = function (passport) {
       ))
   }
 
+  // FortyTwo
+
+  if (appconfig.auth.fortytwo && appconfig.auth.fortytwo.enabled) {
+    const FortyTwoStrategy = require('passport-42').Strategy
+    passport.use('42',
+      new FortyTwoStrategy({
+        clientID: appconfig.auth.fortytwo.clientId,
+        clientSecret: appconfig.auth.fortytwo.clientSecret,
+        callbackURL: appconfig.host + '/login/fortytwo/callback'
+      }, function (accessToken, refreshToken, profile, cb) {
+        const { login: displayName, email, id } = profile._json
+        db.User.processProfile({ displayName, email, id }).then((user) => {
+          return cb(null, user) || true
+        }).catch((err) => {
+          console.log(err)
+          return cb(err, null) || true
+        })
+      }
+      ))
+  }
+
   // GitHub
 
   if (appconfig.auth.github && appconfig.auth.github.enabled) {

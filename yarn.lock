@@ -5355,6 +5355,12 @@ parseurl@^1.3.0, parseurl@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.1.tgz#c8ab8c9223ba34888aa64a297b28853bec18da56"
 
+passport-42@~1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/passport-42/-/passport-42-1.2.4.tgz#cf55e518ac258d2074752cbc3fc361a96726c12f"
+  dependencies:
+    passport-oauth2 "1.x"
+
 passport-azure-ad-oauth2@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/passport-azure-ad-oauth2/-/passport-azure-ad-oauth2-0.0.4.tgz#1a09d8869efd4afd095116e228941961b3a5c120"
@@ -5402,7 +5408,7 @@ passport-oauth1@1.x.x:
     passport-strategy "1.x.x"
     utils-merge "1.x.x"
 
-passport-oauth2@1.x.x:
+passport-oauth2@1.x, passport-oauth2@1.x.x:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/passport-oauth2/-/passport-oauth2-1.4.0.tgz#f62f81583cbe12609be7ce6f160b9395a27b86ad"
   dependencies:

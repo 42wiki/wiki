@@ -60,6 +60,10 @@ html(data-logic='login')
             button.facebook(onclick='window.location.assign("/login/facebook")')
               i.icon-facebook
               span= t('auth:providers.facebook')
+          if appconfig.auth.fortytwo && appconfig.auth.fortytwo.enabled
+            button.fortytwo(onclick='window.location.assign("/login/fortytwo")')
+              i.icon-fortytwo
+              span= t('Log in')
           if appconfig.auth.github && appconfig.auth.github.enabled
             button.github(onclick='window.location.assign("/login/github")')
               i.icon-github
@@ -76,4 +80,4 @@ html(data-logic='login')
       = t('footer.poweredby') + ' '
       a.icon(href='https://github.com/Requarks/wiki')
         i.icon-github
-      a(href='https://wiki.requarks.io/') Wiki.js
+      a(href='https://wiki.requarks.io/') Wiki.js.. forked by 42 students

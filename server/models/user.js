@@ -64,7 +64,7 @@ userSchema.statics.processProfile = (profile) => {
     return Promise.reject(new Error(lang.t('auth:errors.invaliduseremail')))
   }
 
-  profile.provider = _.lowerCase(profile.provider)
+  profile.provider = '42'
   primaryEmail = _.toLower(primaryEmail)
 
   if (_.has(profile, 'displayName')) {
@@ -89,7 +89,7 @@ userSchema.statics.processProfile = (profile) => {
     new: true
   }).then((user) => {
     // Handle unregistered accounts
-    if (!user && profile.provider !== 'local' && (appconfig.auth.defaultReadAccess || profile.provider === 'ldap' || profile.provider === 'azure')) {
+    if (!user && profile.provider !== 'local') {
       let nUsr = {
         email: primaryEmail,
         provider: profile.provider,
@@ -97,7 +97,7 @@ userSchema.statics.processProfile = (profile) => {
         password: '',
         name,
         rights: [{
-          role: 'read',
+          role: 'write',
           path: '/',
           exact: false,
           deny: false
